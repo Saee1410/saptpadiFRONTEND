@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-royal: #4A0404;  /* royal red  */
+  --color-crimson: #B22222;
+  --color-gold: #D4AF37;   /* gold */
+  --color-cream: #FAF9F6;  /* offwhite */
+  
+  --font-serif: "Playfair Display", serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: #1f2937;
+}

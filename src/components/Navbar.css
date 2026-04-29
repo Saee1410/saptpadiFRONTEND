@@ -1,0 +1,339 @@
+.navbar {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background-color: var(--color-cream);
+    border-bottom: 3px solid var(--color-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+ .navbar-brand {
+    display: flex;         
+    align-items: center;   
+    text-decoration: none;
+}
+.logo-img {
+    height: 45px;          
+    width: auto;         
+    display: block;        
+    margin-top: -2px;     
+}
+
+.logo {
+    display: flex;
+    align-items: center;  
+    line-height: 1;       
+    color: var(--color-royal);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.8rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-menu li {
+    margin-left: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--color-royal);
+}
+
+/* Hamburger Icon Styling */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-royal);
+    transition: 0.3s;
+}
+
+/* Mobile View Styles */
+@media screen and (max-width: 960px) {
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 75px;
+        left: -100%; /* सुरुवातीला लपलेला असेल */
+        flex-direction: column;
+        background-color: var(--color-cream);
+        width: 100%;
+        height: auto;
+        padding: 20px 0;
+        transition: 0.4s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.active {
+        left: 0; /* क्लिक केल्यावर आत येईल */
+    }
+
+    .nav-menu li {
+        margin: 15px 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Buttons */
+.register-btn {
+    background-color: var(--color-royal);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 5px;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1.5px solid var(--color-royal);
+    color: var(--color-royal);
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* footer */
+
+/* १. मुख्य फ्युटर बॅकग्राउंड आणि बॉर्डर */
+.footer {
+    background-color: #4a322d; /* Dark Chocolate/Red shade */
+    color: #fdf8f4;
+    padding: 50px 20px 20px;
+    border-top: 5px solid #D4AF37; /* Royal Gold Border */
+    font-family: 'serif';
+    margin-top: 100px;
+}
+
+/* २. कंटेनर लेआउट (Flexbox) */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* ३. लोगो आणि डिस्क्रिप्शन सेक्शन */
+.footer-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-logo {
+    font-size: 2.5rem;
+    color: #D4AF37;
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.footer-logo-image {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+}
+
+.footer-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    max-width: 400px;
+}
+
+/* ४. सोशल लिंक्स डिझाइन */
+.social-links {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #fdf8f4;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.social-links a:hover {
+    color: #D4AF37;
+    margin-left: -60px;
+    transform: translateX(10px); /* थोडं उजवीकडे सरकेल */
+}
+
+/* ५. कॉन्टॅक्ट इन्फो सेक्शन */
+.contact-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.contact-info h3 {
+    color: #D4AF37;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #D4AF37;
+    width: fit-content;
+    padding-bottom: 5px;
+}
+
+.contact-info p {
+    margin-bottom: 12px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ६. रिस्पॉन्सिव्ह मोबाईलसाठी */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo, .contact-info h3 {
+        margin: 0 auto 20px;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    .footer-desc {
+        margin: 0 auto;
+    }
+}
+
+/* मुख्य फ्युटर सेक्शन */
+.footer {
+    background-color: #4a1c1c; /* Dark Royal Red/Maroon */
+    color: #fdf8f4;
+    padding: 60px 20px 30px;
+    border-top: 4px solid #D4AF37; /* Gold Top Border */
+    font-family: 'serif';
+    margin-top: 80px;
+}
+
+/* कंटेनर लेआउट */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* सेक्शन टायटल्स (Follow Us, Contact Us) */
+.footer-section h2, 
+.social-links h3, 
+.contact-info h3 {
+    color: #D4AF37; /* Gold Color */
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* लोगो आणि वर्णन */
+.footer-logo {
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.logo-img-i {
+    height: 50px;
+    margin-top: -70px; 
+    margin-left: 69px;  
+    width: auto;
+    margin-bottom: 15px;
+    filter: drop-shadow(0px 0px 5px rgba(212, 175, 55, 0.4));
+}
+
+.footer-desc {
+    max-width: 350px;
+    line-height: 1.6;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* सोशल मीडिया आयकॉन्स */
+.icons-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
+   
+}
+
+.social-icon {
+    font-size: 28px;
+    color: #fdf8f4;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.social-icon:hover {
+    color: #D4AF37; /* Hover वर गोल्डन होईल */
+    transform: translateY(-8px); /* वरच्या दिशेला थोडा जम्प करेल */
+}
+
+/* कॉन्टॅक्ट माहिती */
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+/* मोबाईल रिस्पॉन्सिव्ह */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-desc {
+        margin: 0 auto;
+    }
+
+    .icons-row {
+        justify-content: center;
+    }
+
+    .contact-info h3, .social-links h3 {
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        padding-bottom: 10px;
+        display: inline-block;
+        width: 100%;
+    }
+}

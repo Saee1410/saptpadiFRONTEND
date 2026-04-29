@@ -1,0 +1,198 @@
+/* AddService.css - Saptpadi Royal Theme */
+
+.add-service-container {
+    background-color: #FAF9F6; /* Creamy Background */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.form-card {
+    background: white;
+    width: 100%;
+    max-width: 650px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #D4AF37; /* Gold Border */
+    box-shadow: 0 10px 30px rgba(128, 0, 32, 0.1);
+    position: relative;
+}
+
+/* Back Button Styling */
+.back-btn {
+    background: none;
+    border: 1px solid #800020;
+    color: #800020;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #800020;
+    color: white;
+}
+
+.form-title {
+    color: #800020; /* Royal Maroon */
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #D4AF37;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+label {
+    display: block;
+    color: #800020;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #D4AF37;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Royal Button */
+.royal-btn {
+    background-color: #800020;
+    color: #FAF9F6;
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #D4AF37;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.royal-btn:hover:not(:disabled) {
+    background-color: #B22222; /* Crimson */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(128, 0, 32, 0.3);
+}
+
+.royal-btn:disabled {
+    background-color: #ccc;
+    border-color: #999;
+    cursor: not-allowed;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-title {
+        font-size: 1.8rem;
+    }
+}
+
+
+.bookings-page {
+    padding: 40px 10%;
+    background-color: #fdfbf7; /* Creamy White */
+    min-height: 100vh;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-gold);
+    padding-bottom: 10px;
+}
+
+.back-link {
+    background: none;
+    border: none;
+    color: var(--color-royal);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.bookings-table th {
+    background: var(--color-royal);
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.bookings-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-badge.pending { background-color: #fff3cd; color: #856404; }
+.status-badge.accepted { background-color: #d4edda; color: #155724; }
+.status-badge.confirmed { background-color: #cce5ff; color: #004085; }
+.status-badge.cancelled { background-color: #f8d7da; color: #721c24; }
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+}
+
+.bookings-table th, .bookings-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}

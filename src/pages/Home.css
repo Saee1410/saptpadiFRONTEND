@@ -1,0 +1,243 @@
+/* Container Setup */
+.container {
+    min-height: 100vh;
+    padding: 60px 8%;
+    background-color: #FAF9F6;
+    font-family: 'Poppins', sans-serif;
+}
+
+.title {
+    font-size: 3.5rem;
+    color: #800020; /* Royal Maroon */
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 40px;
+}
+
+.gold { color: #D4AF37; }
+
+/* Hero Content Layout (Image + Text) */
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 100px;
+}
+
+.main-content-row {
+    display: flex;
+    flex-direction: row; /* इमेजेस आणि टेक्स्ट एका शेजारी एक */
+    align-items: center;  /* उभी मध्यभागी (Vertical Center) */
+    justify-content: flex-start; /* इमेजच्या जवळ राहण्यासाठी */
+    gap: 100px;           /* इमेज आणि बटनमधील अंतर (हवे तसे कमी-जास्त करा) */
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* Image Stack Styles */
+.img-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    flex-shrink: 0;
+}
+
+.card-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.img-stack {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 8px solid white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.label {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(128, 0, 32, 0.9);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper:hover .label { opacity: 1; }
+
+/* Info Side (Text and Button Shifted Right) */
+
+/* मुख्य रो (इमेज डावीकडे, कंटेंट उजवीकडे) */
+.main-content-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* उजवीकडील टेक्स्ट आणि बटनचा कंटेनर */
+.right-content {
+    display: flex;
+    flex-direction: column; /* एकाखाली एक येण्यासाठी */
+    align-items: flex-start; /* डावीकडे अलाईन करण्यासाठी (किंवा flex-end करा जर उजवीकडे हवं असेल) */
+    gap: 20px; /* टेक्स्ट आणि बटनमधील अंतर */
+    flex: 1;
+}
+ 
+
+
+.destination-btn {
+    padding: 15px 40px;
+    background-color: var(--color-royal); /* किंवा #4A0404 */
+    color: white;
+    border: 2px solid var(--color-gold);
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 90px;
+    margin-left: 60px;
+}
+
+.destination-btn:hover {
+    background-color: var(--color-gold);
+    color: var(--color-royal);
+}
+
+.info-side {
+    flex: 1;
+    text-align: right; /* टेक्स्ट उजवीकडे नेण्यासाठी */
+    display: flex;
+    flex-direction: middle;
+    align-items: center; /* बटन उजवीकडे सरकवण्यासाठी */
+    gap: 30px;
+    margin-top: 40px;
+    margin-right: -90px;
+}
+
+.info-text {
+    font-size: 1.8rem;
+    color: #4a322d;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    line-height: 1.4;
+    margin-top: -90px;
+    margin-right: -270px;
+    margin-bottom: 50px;
+    max-width: 500px;
+}
+
+.destination-btn {
+    padding: 18px 45px;
+    background-color: #800020; 
+    color: #ffffff;
+    border: 2px solid #D4AF37;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(128, 0, 32, 0.2);
+    transition: 0.3s;
+    position: relative;
+    z-index: 10;
+}
+
+.destination-btn:hover {
+    background-color: #D4AF37;
+    color: #800020;
+} 
+
+ /* .theme-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);  Dimmed background for better text visibility  
+    opacity: 0;
+    transition: opacity 0.3s ease;
+} */
+
+.theme-card:hover .theme-overlay {
+    opacity: 1;
+}
+
+.book-now-btn {
+    margin-top: 15px;
+    padding: 10px 24px;
+    background-color: #b45309; /* Deep Amber/Gold */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.book-now-btn:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+/* Trending Section Styles */
+.trending-section {
+    margin-top: 80px;
+    border-top: 1px solid #eee;
+    padding-top: 60px;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    color: #4a322d;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.theme-card {
+    height: 450px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.theme-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.theme-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: white;
+}
+
+.theme-overlay h3 { color: #D4AF37; font-size: 1.5rem; }

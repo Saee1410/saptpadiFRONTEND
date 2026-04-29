@@ -1,0 +1,126 @@
+.service-details-container {
+    padding: 60px 10%;
+    background-color: #fdfbf7; /* Creamy light background */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.service-card-large {
+    display: flex;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px;
+    width: 100%;
+    border: 1px solid #e0d5c1;
+}
+
+/* Image Section */
+.service-card-large img {
+    width: 45%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.service-card-large img:hover {
+    transform: scale(1.02);
+}
+
+/* Content Section */
+.details-content {
+    padding: 40px;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.details-content h1 {
+    font-size: 2.5rem;
+    color: #5d1e1e; /* Royal Maroon */
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.category-badge {
+    background: #f1e4d1;
+    color: #8a6d3b;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    width: fit-content;
+    text-transform: uppercase;
+}
+
+.description {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.price {
+    font-size: 2rem;
+    color: #2c3e50;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Buttons Section */
+.action-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.book-btn, .edit-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Customer Side: Book Button */
+.book-btn {
+    background-color: #d4af37; /* Gold */
+    color: white;
+}
+
+.book-btn:hover {
+    background-color: #b8962e;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Vendor Side: Edit Button */
+.edit-btn {
+    background-color: #1e90ff; /* Royal Blue */
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #1a78d1;
+    box-shadow: 0 5px 15px rgba(30, 144, 255, 0.4);
+}
+
+
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .service-card-large {
+        flex-direction: column;
+    }
+    .service-card-large img {
+        width: 100%;
+        height: 300px;
+    }
+    .details-content {
+        width: 100%;
+        padding: 20px;
+    }
+}

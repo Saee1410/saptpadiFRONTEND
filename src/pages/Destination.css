@@ -1,0 +1,54 @@
+/* Custom Colors & Variables */
+:root {
+  --royal-brown: #4a322d;
+  --gold: #d4af37;
+  --off-white: #fdf8f4;
+}
+
+.dest-page {
+  background-color: var(--off-white);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Glassmorphism Effect for Type Tag */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gold Theme Tag Style */
+.bg-gold\/10 {
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Smooth Image Transition */
+img {
+  filter: brightness(0.9);
+  transition: filter 0.5s ease;
+}
+
+img:hover {
+  filter: brightness(1.1);
+}
+
+/* Custom Scrollbar for the page */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 10px;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .place-section {
+    margin-bottom: 2rem;
+  }
+}
