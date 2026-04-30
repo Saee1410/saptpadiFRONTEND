@@ -3,6 +3,8 @@ import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import './Auth.css';
 
+//const API_URL = import.meta.env.VITE_API_URL || 'https://saptpadi-backend.onrender.com';
+
 export const Signup = () => {
     const [formData, setFormData] = useState({
         name: '', email: '', password: '', role: 'customer'});
@@ -12,7 +14,7 @@ export const Signup = () => {
         e.preventDefault();
 
         try{
-            const response = await axios.post('http://localhost:5000/api/auth/signup', formData);
+            const response = await axios.post('https://saptpadi-backend.onrender.com/api/auth/signup', formData);
            
         if(response.status === 201){
             alert("Account created successfully! Please login");

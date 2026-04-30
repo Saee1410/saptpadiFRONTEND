@@ -20,13 +20,6 @@ const AddService = () => {
         videoUrl: ''
      });
 
-    //  const handleChange = (e) => {
-    //     setFormData({...formData, [e.target.name]: e.target.value});
-    //  };
-
-    //  const handleFileChange = (e) => {
-    //     setFormData({...formData, photo: e.target.files[0]});
-    //  };
 
     const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,13 +65,13 @@ const AddService = () => {
             data.append('videoUrl', formData.videoUrl ? formData.videoUrl.trim() : "");
           
             if (formData.externalUrl && formData.externalUrl.trim() !== "") {
-    // १. जर युजरने URL टाकली असेल, तर तीच 'photo' म्हणून पाठवा (सर्वात जास्त Priority)
+    
     data.append('photo', formData.externalUrl);
 } else if (formData.photo) {
     // २. जर URL नसेल तरच अपलोड केलेली फाईल पाठवा
     data.append('photo', formData.photo);
 }
-            const response = await axios.post('http://localhost:5000/api/service/add', data,{
+            const response = await axios.post('https://saptpadi-backend.onrender.com/api/service/add', data,{
                 headers: {
                  Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
@@ -134,7 +127,7 @@ const AddService = () => {
                         <option value="Catering">Catering</option>
                         <option value="Makeup">Makeup</option>
                         <option value="Outfit">Outfit</option>
-                        <option value="Jewelry">Jewelry</option>
+                        <option value="Jewelry">Jewellry</option>
                         <option value="Decoration">Decoration</option>
                         <option value="Music & Entertainment">Music & Entertainment</option>
                         <option value="Venue">Venue</option>
