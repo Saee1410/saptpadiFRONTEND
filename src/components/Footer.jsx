@@ -31,7 +31,7 @@ const Footer = () => {
                 <p>✉️ support@vedicrituals.com</p>
                 <p>📞 +91 8080296179 </p>
             </div>
-       </div> {/* हा div बंद करणं महत्वाचं होतं */}
+       </div> 
     </footer>
   )
 }

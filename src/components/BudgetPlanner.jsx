@@ -20,7 +20,7 @@ const BudgetPlanner = () => {
 
     const fetchHistory = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/budget/get-history');
+            const response = await axios.get('https://saptpadi-backend.onrender.com/api/budget/get-history');
             if (response.data.success) {
                 setHistory(response.data.history);
             }
@@ -38,7 +38,7 @@ const BudgetPlanner = () => {
         if (!window.confirm(t('confirm_delete') || "हा प्लॅन डिलीट करायचा का?")) return;
 
         try {
-            const response = await axios.delete(`http://localhost:5000/api/budget/delete-history/${id}`);
+            const response = await axios.delete(`https://saptpadi-backend.onrender.com/api/budget/delete-history/${id}`);
             if (response.data.success) {
                 fetchHistory(); 
                 if (plan && plan._id === id) setPlan(null);
@@ -68,7 +68,7 @@ const BudgetPlanner = () => {
             locationType: formData.locationType
         };
 
-        const response = await axios.post('http://localhost:5000/api/budget/plan-budget', payload);
+        const response = await axios.post('https://saptpadi-backend.onrender.com/api/budget/plan-budget', payload);
         
         if (response.data.success) {
             setPlan(response.data.plan);

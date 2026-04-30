@@ -26,7 +26,7 @@ const VendorDashboard = () => {
                 const vendorId = user._id || user.id;
 
                 const response = await axios.get(
-                    `http://localhost:5000/api/bookings/vendor/${vendorId}`
+                    `https://saptpadi-frontend.vercel.app/api/bookings/vendor/${vendorId}`
                 );
 
                 console.log("Dashboard bookings:", response.data);

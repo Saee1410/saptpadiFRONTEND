@@ -28,7 +28,7 @@ const MyBookings = () => {
 
             try {
                 const res = await axios.get(
-                    `http://localhost:5000/api/bookings/vendor/${uId}`
+                    `https://saptpadi-backend.onrender.com/api/bookings/vendor/${uId}`
                 );
 
                 console.log("API Response:", res.data); // DEBUG

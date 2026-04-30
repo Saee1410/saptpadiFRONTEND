@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AIStyleGenerator.css';
@@ -31,7 +27,7 @@ const AIStyleGenerator = () => {
 
         try {
             const response = await axios.post(
-                'http://localhost:5000/api/ai/generate-style',
+                'https://saptpadi-frontend.vercel.app/api/ai/generate-style',
                // { prompt }
                 {
         prompt: `Traditional Maharashtrian wedding, ${prompt}, mandap decoration`

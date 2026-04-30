@@ -1,7 +1,7 @@
 import React from 'react'; // 'Reat' दुरुस्त केले
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-// Recharts चे सर्व कॉम्पोनंट्स इथे इम्पोरट करणे आवश्यक आहे
+
 import { 
     AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, 
     ResponsiveContainer, PieChart, Pie, Cell 
