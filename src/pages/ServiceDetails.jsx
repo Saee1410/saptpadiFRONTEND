@@ -19,7 +19,7 @@ const ServiceDetails = () => {
     useEffect(() => {
         const fetchService = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/service/${id}`);
+                const res = await axios.get(`https://saptpadi-frontend.vercel.app/api/service/${id}`);
                 setService(res.data);
             } catch (err) {
                 console.error("Error fetching service details", err);
@@ -39,7 +39,7 @@ const ServiceDetails = () => {
     if (service.photo.startsWith('http')) {
         finalUrl = service.photo;
     } else {
-        finalUrl = `http://localhost:5000/${service.photo.replace(/\\/g, '/')}`;
+        finalUrl = `https://saptpadi-frontend.vercel.app/${service.photo.replace(/\\/g, '/')}`;
     }
 
     // URL च्या शेवटी करंट टाइम जोडा ज्यामुळे कॅशिंग होत नाही
@@ -59,7 +59,7 @@ const handleBookingRequest = async () => {
             message: `Booking request for ${service.businessName}`
         };
         
-        const res = await axios.post('http://localhost:5000/api/bookings/request', bookingData);
+        const res = await axios.post('https://saptpadi-frontend.vercel.app/api/bookings/request', bookingData);
         if(res.data.success) {
             alert("Booking request sent successfully!");
         }
@@ -78,7 +78,7 @@ const handleBookingRequest = async () => {
     //             userId: user?._id,
     //             eventDate: selectedDate, 
     //         };
-    //         await axios.post('http://localhost:5000/api/bookings/request', bookingData);
+    //         await axios.post('https://saptpadi-frontend.vercel.app/api/bookings/request', bookingData);
     //         alert("Booking request sent successfully!");
     //     } catch (err) {
     //         console.error("Error sending booking request", err);

@@ -10,8 +10,7 @@ const TrendingPackages = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // Fallback Image (दोन्ही गोष्टी चालल्या नाहीत तर हे दिसेल)
-  //const placeholderImg = "https://placehold.co/600x400?text=Image+Not+Found";
+
 
       // Pinterest Link (Default jar image nasel tar)
     const pinterestLink = "https://i.pinimg.com/736x/25/e4/8e/25e48e89e255f3b84ad4915ebcd3922f.jpg";
@@ -22,7 +21,7 @@ const TrendingPackages = () => {
     const fetchTrendingServices = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:5000/api/service/style/${styleId}`);
+        const response = await axios.get(`https://saptpadi-frontend.vercel.app/api/service/style/${styleId}`);
         setServices(response.data);
       } catch (err) {
         console.error("Error fetching services:", err);
@@ -46,7 +45,7 @@ const TrendingPackages = () => {
     } else {
       // २. जर लोकल फाईल असेल, तर बॅकएंडचा URL जोडा
       const cleanPath = item.photo.replace(/\\/g, '/');
-      finalUrl = `http://localhost:5000/${cleanPath}`;
+      finalUrl = `https://saptpadi-frontend.vercel.app/${cleanPath}`;
     }
 
     // 🔥 सर्वात महत्त्वाचं: URL च्या शेवटी Timestamp जोडा ज्यामुळे नवीन इमेज लगेच दिसेल

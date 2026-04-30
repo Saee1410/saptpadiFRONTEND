@@ -5,6 +5,8 @@ import { DocumentProjectionNode, motion } from 'framer-motion';
 import axios from 'axios';
 import './DestinationDetail.css';
 
+//const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const DestinationDetail = () => {
     const { id } = useParams();
     const [dbVendors, setDbVendors] = useState([]);
@@ -31,7 +33,7 @@ const DestinationDetail = () => {
                 message: "Looking forward to working with you!"
             };
 
-            const res = await axios.post('http://localhost:5000/api/bookings/request', bookingData, {
+            const res = await axios.post(`https://saptpadi-frontend.vercel.app/api/bookings/request`, bookingData, {
                 headers: { Authorization: `Bearer ${token}`}
             });
 
@@ -48,7 +50,7 @@ const DestinationDetail = () => {
         if (window.confirm("Are you sure you want to delete this service?")) {
             try {
                 const token = localStorage.getItem('token');
-                await axios.delete(`http://localhost:5000/api/service/${serviceId}`, {
+                await axios.delete(`https://saptpadi-frontend.vercel.app/api/service/${serviceId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setDbVendors(prev => prev.filter(v => v._id !== serviceId));
@@ -64,7 +66,7 @@ const DestinationDetail = () => {
         let isMounted = true;
         const fetchNewVendors = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/service?location=${id}`);
+                const res = await axios.get(`https://saptpadi-frontend.vercel.app/api/service?location=${id}`);
                 if (isMounted) {
                     setDbVendors(res.data);
                 }
@@ -141,7 +143,7 @@ const DestinationDetail = () => {
         >
             <div className="relative h-64 overflow-hidden bg-gray-100">
                 <img 
-                    src={vendor.image ? vendor.image : (vendor.photo && vendor.photo.startsWith('http') ? vendor.photo : `http://localhost:5000/${vendor.photo?.replace(/\\/g, '/')}`)}
+                    src={vendor.image ? vendor.image : (vendor.photo && vendor.photo.startsWith('http') ? vendor.photo : `${API_URL}/${vendor.photo?.replace(/\\/g, '/')}`)}
                     alt={vendor.name || vendor.businessName} 
                     className='w-full h-full object-cover transition-transform duration-500 hover:scale-110'
                     onError={(e) => {

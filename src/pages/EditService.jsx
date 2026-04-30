@@ -25,7 +25,7 @@ const EditService = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this service?");
         if (confirmDelete) {
             try {
-                await axios.delete(`http://localhost:5000/api/service/${id}`);
+                await axios.delete(`https://saptpadi-frontend.vercel.app/api/service/${id}`);
                 alert("Service deleted successfully!");
                 navigate('/services');
             } catch (err) {
@@ -38,7 +38,7 @@ const EditService = () => {
     useEffect(() => {
         const fetchService = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/service/${id}`);
+                const res = await axios.get(`https://saptpadi-frontend.vercel.app/api/service/${id}`);
                 const data = res.data;
                 setFormData({
                     businessName: data.businessName,
@@ -55,7 +55,7 @@ const EditService = () => {
                 if (data.photo) {
                     const imgUrl = data.photo.startsWith('http') 
                         ? data.photo 
-                        : `http://localhost:5000/${data.photo.replace(/\\/g, '/')}`;
+                        : `https://saptpadi-frontend.vercel.app/${data.photo.replace(/\\/g, '/')}`;
                     setImagePreview(imgUrl);
                 }
             } catch (err) {
@@ -113,7 +113,7 @@ const EditService = () => {
     }
 
     try {
-        await axios.put(`http://localhost:5000/api/service/${id}`, data, {
+        await axios.put(`https://saptpadi-frontend.vercel.app/api/service/${id}`, data, {
             headers: { 
                 'Content-Type': 'multipart/form-data',
                 // 🔴 हे सर्वात महत्त्वाचे आहे:
@@ -133,38 +133,6 @@ const EditService = () => {
     }
 };
 
-//     const handleSubmit = async (e) => {
-//     e.preventDefault();
-    
-//     const data = new FormData();
-    
-//     // १. सर्व टेक्स्ट डेटा ॲड करा (photo सोडून)
-//     Object.keys(formData).forEach(key => {
-//         if (key !== 'photo') {
-//             data.append(key, formData[key]);
-//         }
-//     });
-    
-//     // २. इमेज लॉजिक (सर्वात महत्त्वाचे)
-//     if (selectedFile) {
-//         // जर युजरने नवीन फाईल सिलेक्ट केली असेल तर ती 'photo' नावाने पाठवा
-//         data.append('photo', selectedFile);
-//     } else if (formData.photo) {
-//         // जर फाईल नसेल पण Pinterest URL असेल, तर ती 'photo' नावाने पाठवा
-//         data.append('photo', formData.photo);
-//     }
-
-//     try {
-//         await axios.put(`http://localhost:5000/api/service/${id}`, data, {
-//             headers: { 'Content-Type': 'multipart/form-data' }
-//         });
-//         alert("Service updated successfully!");
-//         navigate(`/service/${id}`);
-//     } catch (err) {
-//         console.error("Error updating service", err);
-//         alert("Failed to update service.");
-//     }
-// };
 
     if (loading) {
         return (
