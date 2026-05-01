@@ -10,7 +10,8 @@ const Services = () => {
         const fetchAllServices = async () => {
             try {
                 const res = await axios.get('https://saptpadi-backend.onrender.com/api/service/all');
-                setServices(res.data);
+                const actualData = Array.isArray(res.data) ? res.data : res.data.services || [];
+                setServices(actualData);
             } catch (err) {
                 console.error("Error fetching services:", err);
             }
