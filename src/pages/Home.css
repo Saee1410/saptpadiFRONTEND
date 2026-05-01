@@ -26,15 +26,16 @@
 
 .main-content-row {
     display: flex;
-    flex-direction: row; /* इमेजेस आणि टेक्स्ट एका शेजारी एक */
-    align-items: center;  /* उभी मध्यभागी (Vertical Center) */
-    justify-content: flex-start; /* इमेजच्या जवळ राहण्यासाठी */
-    gap: 100px;           /* इमेज आणि बटनमधील अंतर (हवे तसे कमी-जास्त करा) */
+    flex-direction: column; /* 'row' ऐवजी 'column' करा */
+    align-items: center;    /* सर्व काही मध्यभागी अलाईन करण्यासाठी */
+    justify-content: center;
+    gap: 40px;             /* इमेज आणि टेक्स्ट मधील अंतर */
     margin-top: 40px;
     width: 100%;
 }
 
 /* Image Stack Styles */
+
 .img-container {
     margin-top: 150px;
     position: relative;
