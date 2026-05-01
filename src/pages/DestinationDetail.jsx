@@ -33,7 +33,7 @@ const DestinationDetail = () => {
                 message: "Looking forward to working with you!"
             };
 
-            const res = await axios.post(`https://saptpadi-frontend.vercel.app/api/bookings/request`, bookingData, {
+            const res = await axios.post(`https://saptpadi-backend.onrender.com/api/bookings/request`, bookingData, {
                 headers: { Authorization: `Bearer ${token}`}
             });
 
@@ -50,7 +50,7 @@ const DestinationDetail = () => {
         if (window.confirm("Are you sure you want to delete this service?")) {
             try {
                 const token = localStorage.getItem('token');
-                await axios.delete(`https://saptpadi-frontend.vercel.app/api/service/${serviceId}`, {
+                await axios.delete(`https://saptpadi-backend.onrender.com/api/service/${serviceId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setDbVendors(prev => prev.filter(v => v._id !== serviceId));
@@ -66,7 +66,7 @@ const DestinationDetail = () => {
         let isMounted = true;
         const fetchNewVendors = async () => {
             try {
-                const res = await axios.get(`https://saptpadi-frontend.vercel.app/api/service?location=${id}`);
+                const res = await axios.get(`https://saptpadi-backend.onrender.com/api/service?location=${id}`);
                 if (isMounted) {
                     setDbVendors(res.data);
                 }
