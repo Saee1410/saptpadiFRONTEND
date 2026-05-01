@@ -8,25 +8,22 @@
 
 .title {
     font-size: 3.5rem;
-    color: #800020;
+    color: #800020; /* Royal Maroon */
     font-family: 'Playfair Display', serif;
     margin-bottom: 40px;
-    text-align: center;
 }
 
 .gold { color: #D4AF37; }
 
-/* 
-   हे महत्त्वाचे आहे: 
-   Default (Laptop/Desktop साठी): Row layout 
-*/
+/* Hero Content Layout (Image + Text) */
+/* हा मुख्य भाग आहे जिथे बदल केला आहे */
 .main-content-row {
     display: flex;
-    flex-direction: row;      /* लॅपटॉपवर एका शेजारी एक */
-    align-items: center;
-    justify-content: space-around; /* इमेज आणि टेक्स्टमध्ये जागा ठेवण्यासाठी */
-    gap: 40px;
-    margin-top: 60px;
+    flex-direction: column; /* इमेज वर आणि मजकूर खाली येण्यासाठी */
+    align-items: center;    /* सेंटरला अलाईन करण्यासाठी */
+    justify-content: center;
+    gap: 60px;              /* इमेज आणि मजकूर यांच्यातील सुरक्षित अंतर */
+    margin-top: 40px;
     width: 100%;
 }
 
@@ -34,7 +31,7 @@
 .img-container {
     position: relative;
     width: 400px;
-    height: 400px;
+    height: 400px; /* ही उंची महत्त्वाची आहे, यामुळे मजकूर खाली ढकलला जातो */
     flex-shrink: 0;
 }
 
@@ -54,75 +51,135 @@
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-/* Info Side (Right side on laptop) */
+.label {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(128, 0, 32, 0.9);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper:hover .label { opacity: 1; }
+
+/* Info Side - इथले सर्व Negative Margins काढले आहेत */
 .info-side {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* लॅपटॉपवर मजकूर डावीकडे अलाईन */
-    text-align: left;
-    max-width: 500px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .info-text {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #4a322d;
     font-family: 'Playfair Display', serif;
     font-style: italic;
     line-height: 1.4;
-    margin-bottom: 30px;
+    max-width: 600px;
+    margin-bottom: 30px; /* बटनपासूनचे अंतर */
+    /* सर्व negative margins काढून टाकले */
 }
 
 .destination-btn {
     padding: 18px 45px;
-    background-color: #800020;
+    background-color: #800020; 
     color: #ffffff;
     border: 2px solid #D4AF37;
     border-radius: 50px;
     font-size: 1.1rem;
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
+    box-shadow: 0 10px 20px rgba(128, 0, 32, 0.2);
     transition: 0.3s;
+    position: relative;
+    z-index: 10;
 }
 
-/* 
-   Responsive: मोबाईलसाठी (Max-width: 768px)
-*/
-@media (max-width: 768px) {
-    .main-content-row {
-        flex-direction: column; /* मोबाईलवर एका खाली एक */
-        text-align: center;
-        gap: 50px;
-    }
-
-    .img-container {
-        width: 280px;  /* मोबाईलवर इमेज लहान */
-        height: 280px;
-        margin-bottom: 20px;
-    }
-
-    .info-side {
-        align-items: center; /* मोबाईलवर मजकूर सेंटरला */
-        text-align: center;
-    }
-
-    .info-text {
-        font-size: 1.5rem;
-    }
-
-    .title {
-        font-size: 2.2rem;
-    }
+.destination-btn:hover {
+    background-color: #D4AF37;
+    color: #800020;
 }
 
-/* Trending Section (जसा आहे तसा) */
-.trending-section { margin-top: 80px; padding-top: 60px; }
+/* Trending Styles Section (No Changes) */
+.trending-section {
+    margin-top: 80px;
+    border-top: 1px solid #eee;
+    padding-top: 60px;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    color: #4a322d;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .trending-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
-.theme-card { height: 450px; border-radius: 25px; position: relative; }
-.theme-img { width: 100%; height: 400px; object-fit: cover; }
-.theme-overlay { position: absolute; bottom: 0; width: 100%; padding: 30px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); color: white; }
+
+.theme-card {
+    height: 450px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.theme-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.theme-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: white;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.theme-card:hover .theme-overlay {
+    opacity: 1;
+}
+
+.theme-overlay h3 { color: #D4AF37; font-size: 1.5rem; }
+
+.book-now-btn {
+    margin-top: 15px;
+    padding: 10px 24px;
+    background-color: #b45309;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container { padding: 40px 20px; }
+    .title { font-size: 2.2rem; text-align: center; }
+    .img-container { width: 280px; height: 280px; }
+    .info-text { font-size: 1.4rem; }
+}
