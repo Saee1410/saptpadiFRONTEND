@@ -337,3 +337,34 @@
         width: 100%;
     }
 }
+
+
+
+@media screen and (max-width: 960px) {
+    .menu-icon {
+        display: flex;
+        z-index: 1001; 
+    }
+
+    .nav-menu {
+        display: flex;
+        position: fixed; 
+        top: 0;
+        left: -100%;
+        width: 70%; 
+        height: 100vh;
+        background-color: white; 
+        justify-content: center;
+        transition: 0.5s;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-menu.active {
+        left: 0; 
+    }
+
+
+    .bar1-active { transform: rotate(-45deg) translate(-5px, 6px); }
+    .bar2-active { opacity: 0; }
+    .bar3-active { transform: rotate(45deg) translate(-5px, -6px); }
+}
