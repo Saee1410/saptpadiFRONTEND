@@ -58,7 +58,7 @@ const Home = () => {
           message: `Booking for ${style.name} Theme`
         };
 
-        const response = await axios.post(`https://saptpadi-frontend.vercel.app/api/bookings/request`, bookingData);
+        const response = await axios.post(`https://saptpadi-frontend.backend.onrender.com/api/bookings/request`, bookingData);
         if (response.data.success) {
           alert("Booking Request Sent!");
           navigate('/profile');
@@ -80,9 +80,9 @@ const Home = () => {
               key={index}
               className="card-wrapper"
               initial={{ opacity: 0, y: 50, rotate: item.angle, x: item.angle * 5 }}
-              animate={{ opacity: 1, y: 0, x: item.angle * 8 }}
+              animate={{ opacity: 1, y: 0, x: window.innerWidth < 768 ? item.angle * 2 : item.angle * 8 }}
               transition={{ delay: index * 0.2 }}
-              whileHover={{ x: item.x, rotate: 0, scale: 1.1, zIndex: 100 }}
+              whileHover={{ x: window.innerWidth < 768 ? 0 : item.x, rotate: 0, scale: 1.1, zIndex: 100 }}
             >
               <img src={item.src} className='img-stack' alt={item.label} style={{ transform: `rotate(${item.angle}deg)` }} />
               <div className="label">{item.label}</div>

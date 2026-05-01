@@ -242,58 +242,60 @@
 
 .theme-overlay h3 { color: #D4AF37; font-size: 1.5rem; }
 
-/* Mobile Responsive Styles */
+/* मोबाईलसाठी खास बदल */
 @media (max-width: 768px) {
     .container {
-        padding: 40px 5%; /* बाजूची जागा कमी केली */
+        padding: 40px 20px;
+        overflow-x: hidden; /* स्क्रीन बाहेर ढकलली जाणार नाही */
     }
 
     .title {
-        font-size: 2.2rem; /* टायटल लहान केला */
+        font-size: 2.2rem;
         text-align: center;
+        margin-bottom: 20px;
     }
 
-    /* इमेज आणि टेक्स्ट एका खाली एक येण्यासाठी */
+    /* इमेज आणि मजकूर एकाखाली एक येण्यासाठी */
     .main-content-row {
-        flex-direction: column; 
-        gap: 40px;
-        text-align: center;
+        flex-direction: column;
+        gap: 60px; /* इमेज आणि बटनमधील अंतर */
+        margin-top: 20px;
+        align-items: center;
         justify-content: center;
     }
 
-    /* इमेज कंटेनर मोबाईलवर स्क्रीनमध्ये बसवण्यासाठी */
     .img-container {
-        width: 280px; /* मोबाईलसाठी रुंदी कमी केली */
-        height: 280px;
-        margin: 0 auto; /* सेंटरला आणण्यासाठी */
+        width: 260px; /* मोबाईलसाठी लहान साईज */
+        height: 260px;
+        margin-bottom: 20px;
     }
 
-    /* नेगेटिव्ह मार्जिन काढून टाका जेणेकरून मजकूर स्क्रीनच्या बाहेर जाणार नाही */
+    .info-side {
+        text-align: center; /* मजकूर सेंटरला */
+        margin-right: 0 !important; /* तुमचे Negative Margins काढून टाका */
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .info-text {
-        font-size: 1.3rem;
-        margin-right: 0 !important; 
-        margin-top: 20px !important;
+        font-size: 1.4rem;
+        margin-right: 0 !important;
+        margin-bottom: 20px;
         text-align: center;
         max-width: 100%;
     }
 
-    .right-content {
-        align-items: center; /* बटन आणि टेक्स्ट सेंटरला */
-    }
-
     .destination-btn {
         margin-left: 0 !important;
-        margin-top: 20px !important;
-        width: 100%; /* बटन पूर्ण रुंदीचे करण्यासाठी */
-        max-width: 300px;
+        margin-top: 10px !important;
+        padding: 12px 30px;
+        font-size: 1rem;
+        width: fit-content;
     }
 
-    /* ट्रेंडिंग कार्ड्स मोबाईलवर व्यवस्थित दिसण्यासाठी */
-    .trending-grid {
-        grid-template-columns: 1fr; /* एका रांगेत एकच कार्ड */
-    }
-
-    .theme-card {
-        height: 380px;
+    .img-stack {
+        border-width: 4px; /* बॉर्डर थोडी बारीक केली */
     }
 }
