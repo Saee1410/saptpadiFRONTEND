@@ -21,8 +21,8 @@ const UserProfile = () => {
     const fetchData = async (id) => {
         try {
             const [userRes, bookingRes] = await Promise.all([
-                axios.get(`https://saptpadi-frontend.vercel.app/api/users/${id}`),
-                axios.get(`https://saptpadi-frontend.vercel.app/api/bookings/my-bookings/${id}`)
+                axios.get(`https://saptpadi-backend.onrender.com/api/users/${id}`),
+                axios.get(`https://saptpadi-backend.onrender.com/api/bookings/my-bookings/${id}`)
             ]);
             setUser(userRes.data.user || userRes.data);
             setBookings(bookingRes.data.bookings || []);
@@ -43,7 +43,7 @@ const UserProfile = () => {
     const handleCancelBooking = async (bookingId) => {
         if (!window.confirm("Are you sure you want to cancel this booking?")) return;
         try {
-            const res = await axios.put(`https://saptpadi-frontend.vercel.app/api/bookings/cancel/${bookingId}`);
+            const res = await axios.put(`https://saptpadi-backend.onrender.com/api/bookings/cancel/${bookingId}`);
             if (res.data.success) {
                 alert("Booking Removed!");
 
@@ -60,7 +60,7 @@ const UserProfile = () => {
     const handleUpdateProfile = async () => {
         try {
             const userId = user._id || user.id;
-            const res = await axios.put(`https://saptpadi-frontend.vercel.app/api/users/update-user/${userId}`, formData);
+            const res = await axios.put(`https://saptpadi-backend.onrender.com/api/users/update-user/${userId}`, formData);
             if (res.data.success) {
                 const updatedUser = { ...user, ...formData};
                 localStorage.setItem('user', JSON.stringify(updatedUser));
