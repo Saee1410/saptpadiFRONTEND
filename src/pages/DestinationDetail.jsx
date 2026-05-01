@@ -5,7 +5,7 @@ import { DocumentProjectionNode, motion } from 'framer-motion';
 import axios from 'axios';
 import './DestinationDetail.css';
 
-
+const API_URL = "https://saptpadi-backend.onrender.com";
 
 const DestinationDetail = () => {
     const { id } = useParams();
