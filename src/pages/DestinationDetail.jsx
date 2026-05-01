@@ -5,7 +5,7 @@ import { DocumentProjectionNode, motion } from 'framer-motion';
 import axios from 'axios';
 import './DestinationDetail.css';
 
-//const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 
 const DestinationDetail = () => {
     const { id } = useParams();
@@ -91,6 +91,7 @@ const DestinationDetail = () => {
                 return url;
             }
         } catch (e) {
+            console.log("error msg:", e);
             return null;
         }
         return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
