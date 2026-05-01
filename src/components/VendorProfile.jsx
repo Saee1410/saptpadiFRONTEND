@@ -19,7 +19,7 @@ const VendorProfile = () => {
                 if (!vendorId) return;
 
                 // बॅकएंडवरून वेंडरचे सर्व बुकिंग्स मागवा
-                const res = await axios.get(`https://saptpadi-frontend.vercel.app/api/bookings/vendor/${vendorId}`);
+                const res = await axios.get(`https://saptpadi-backend.onrender.com/api/bookings/vendor/${vendorId}`);
                 
                 if (res.data.success) {
                     setMyBookings(res.data.bookings || []);
@@ -36,7 +36,7 @@ const VendorProfile = () => {
     const handleAcceptBooking = async (bookingId) => {
     try {
         // १. डेटाबेसमध्ये स्टेटस अपडेट करा
-        const res = await axios.put(`https://saptpadi-frontend.vercel.app/api/bookings/update-status/${bookingId}`, {
+        const res = await axios.put(`https://saptpadi-backend.onrender.com/api/bookings/update-status/${bookingId}`, {
             status: 'Accepted' 
         });
 
@@ -61,7 +61,7 @@ const VendorProfile = () => {
     const handleUpdateProfile = async () => {
         try {
             const vendorId = user._id || user.id;
-            const res = await axios.put(`https://saptpadi-frontend.vercel.app/api/users/update-vendor/${vendorId}`, formData);
+            const res = await axios.put(`https://saptpadi-backend.onrender.com/api/users/update-vendor/${vendorId}`, formData);
             
             if (res.data.success) {
                 const updatedUser = { ...user, ...formData };
