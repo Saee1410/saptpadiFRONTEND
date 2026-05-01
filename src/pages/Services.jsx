@@ -9,7 +9,7 @@ const Services = () => {
     useEffect(() => {
         const fetchAllServices = async () => {
             try {
-                const res = await axios.get('https://saptpadi-frontend.vercel.app/api/service/all');
+                const res = await axios.get('https://saptpadi-backend.onrender.com/api/service/all');
                 setServices(res.data);
             } catch (err) {
                 console.error("Error fetching services:", err);
@@ -28,7 +28,7 @@ const Services = () => {
                         <img 
     src={service.photo && service.photo.startsWith('http')
         ? service.photo
-        : `https://saptpadi-frontend.vercel.app/${service.photo?.replace(/\\/g, '/')}`
+        : `https://saptpadi-backend.onrender.com/${service.photo?.replace(/\\/g, '/')}`
     }
     alt={service.businessName}
     className='w-full h-48 object-cover rounded-md mb-4'
