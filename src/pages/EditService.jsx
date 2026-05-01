@@ -87,19 +87,23 @@ const EditService = () => {
         }
     };
 
-    const handleSubmit = async (e) => {
+    // handleSubmit फंक्शन मध्ये हा बदल करा:
+const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // १. टोकन मिळवा
     const token = localStorage.getItem('token'); 
-    
     if (!token) {
-        alert("तुमचे सेशन संपले आहे, कृपया पुन्हा लॉगिन करा.");
+        alert("Session expired, please login again.");
         return navigate('/login');
     }
 
+    // खात्री करा की id 'undefined' नाहीये
+    if (!id) {
+        alert("Service ID missing!");
+        return;
+    }
+
     const data = new FormData();
-    
     Object.keys(formData).forEach(key => {
         if (key !== 'photo') {
             data.append(key, formData[key]);
@@ -113,25 +117,69 @@ const EditService = () => {
     }
 
     try {
-        await axios.put(`https://saptpadi-backend.onrender.com/api/service/${id}`, data, {
+        // ✅ खात्री करा की URL 'backend' ची आहे
+        const backendUrl = `https://saptpadi-backend.onrender.com/api/service/${id}`;
+        
+        await axios.put(backendUrl, data, {
             headers: { 
                 'Content-Type': 'multipart/form-data',
-                // 🔴 हे सर्वात महत्त्वाचे आहे:
                 'Authorization': `Bearer ${token}` 
             }
         });
+        
         alert("Service updated successfully!");
         navigate(`/service/${id}`);
     } catch (err) {
-        console.error("Error updating service", err);
-        // जर टोकन चुकीचे असेल तर 401 एरर येईल
-        if (err.response?.status === 401) {
-            alert("Unauthorized: कृपया पुन्हा लॉगिन करा.");
-        } else {
-            alert("Failed to update service.");
-        }
+        console.error("Update Error:", err.response?.data || err.message);
+        alert(err.response?.data?.msg || "Failed to update service.");
     }
 };
+
+//     const handleSubmit = async (e) => {
+//     e.preventDefault();
+    
+//     // १. टोकन मिळवा
+//     const token = localStorage.getItem('token'); 
+    
+//     if (!token) {
+//         alert("तुमचे सेशन संपले आहे, कृपया पुन्हा लॉगिन करा.");
+//         return navigate('/login');
+//     }
+
+//     const data = new FormData();
+    
+//     Object.keys(formData).forEach(key => {
+//         if (key !== 'photo') {
+//             data.append(key, formData[key]);
+//         }
+//     });
+    
+//     if (selectedFile) {
+//         data.append('photo', selectedFile);
+//     } else if (formData.photo) {
+//         data.append('photo', formData.photo);
+//     }
+
+//     try {
+//         await axios.put(`https://saptpadi-backend.onrender.com/api/service/${id}`, data, {
+//             headers: { 
+//                 'Content-Type': 'multipart/form-data',
+//                 // 🔴 हे सर्वात महत्त्वाचे आहे:
+//                 'Authorization': `Bearer ${token}` 
+//             }
+//         });
+//         alert("Service updated successfully!");
+//         navigate(`/service/${id}`);
+//     } catch (err) {
+//         console.error("Error updating service", err);
+//         // जर टोकन चुकीचे असेल तर 401 एरर येईल
+//         if (err.response?.status === 401) {
+//             alert("Unauthorized: कृपया पुन्हा लॉगिन करा.");
+//         } else {
+//             alert("Failed to update service.");
+//         }
+//     }
+// };
 
 
     if (loading) {
