@@ -16,30 +16,22 @@
 .gold { color: #D4AF37; }
 
 /* Hero Content Layout (Image + Text) */
-.hero-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
-    margin-bottom: 100px;
-}
-
+/* हा मुख्य भाग आहे जिथे बदल केला आहे */
 .main-content-row {
     display: flex;
-    flex-direction: column; /* 'row' ऐवजी 'column' करा */
-    align-items: center;    /* सर्व काही मध्यभागी अलाईन करण्यासाठी */
+    flex-direction: column; /* इमेज वर आणि मजकूर खाली येण्यासाठी */
+    align-items: center;    /* सेंटरला अलाईन करण्यासाठी */
     justify-content: center;
-    gap: 40px;             /* इमेज आणि टेक्स्ट मधील अंतर */
+    gap: 60px;              /* इमेज आणि मजकूर यांच्यातील सुरक्षित अंतर */
     margin-top: 40px;
     width: 100%;
 }
 
 /* Image Stack Styles */
-
 .img-container {
     position: relative;
     width: 400px;
-    height: 400px;
+    height: 400px; /* ही उंची महत्त्वाची आहे, यामुळे मजकूर खाली ढकलला जातो */
     flex-shrink: 0;
 }
 
@@ -75,57 +67,15 @@
 
 .card-wrapper:hover .label { opacity: 1; }
 
-/* Info Side (Text and Button Shifted Right) */
-
-/* मुख्य रो (इमेज डावीकडे, कंटेंट उजवीकडे) */
-.main-content-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    margin-top: 60px;
-}
-
-/* उजवीकडील टेक्स्ट आणि बटनचा कंटेनर */
-.right-content {
-    display: flex;
-    flex-direction: column; /* एकाखाली एक येण्यासाठी */
-    align-items: flex-start; /* डावीकडे अलाईन करण्यासाठी (किंवा flex-end करा जर उजवीकडे हवं असेल) */
-    gap: 20px; /* टेक्स्ट आणि बटनमधील अंतर */
-    flex: 1;
-}
- 
-
-
-.destination-btn {
-    padding: 15px 40px;
-    background-color: var(--color-royal); /* किंवा #4A0404 */
-    color: white;
-    border: 2px solid var(--color-gold);
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 90px;
-    margin-left: 60px;
-}
-
-.destination-btn:hover {
-    background-color: var(--color-gold);
-    color: var(--color-royal);
-}
-
+/* Info Side - इथले सर्व Negative Margins काढले आहेत */
 .info-side {
-    flex: 1;
-    text-align: right; /* टेक्स्ट उजवीकडे नेण्यासाठी */
     display: flex;
-    flex-direction: middle;
-    align-items: center; /* बटन उजवीकडे सरकवण्यासाठी */
-    gap: 30px;
-    margin-top: 40px;
-    margin-right: -90px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .info-text {
@@ -134,10 +84,9 @@
     font-family: 'Playfair Display', serif;
     font-style: italic;
     line-height: 1.4;
-    margin-top: -90px;
-    margin-right: -270px;
-    margin-bottom: 50px;
-    max-width: 500px;
+    max-width: 600px;
+    margin-bottom: 30px; /* बटनपासूनचे अंतर */
+    /* सर्व negative margins काढून टाकले */
 }
 
 .destination-btn {
@@ -160,34 +109,9 @@
 .destination-btn:hover {
     background-color: #D4AF37;
     color: #800020;
-} 
-
-
-
-.theme-card:hover .theme-overlay {
-    opacity: 1;
 }
 
-.book-now-btn {
-    margin-top: 15px;
-    padding: 10px 24px;
-    background-color: #b45309; /* Deep Amber/Gold */
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.book-now-btn:hover {
-    background-color: #d97706;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
-/* Trending Section Styles */
+/* Trending Styles Section (No Changes) */
 .trending-section {
     margin-top: 80px;
     border-top: 1px solid #eee;
@@ -229,64 +153,33 @@
     padding: 30px;
     background: linear-gradient(transparent, rgba(0,0,0,0.85));
     color: white;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.theme-card:hover .theme-overlay {
+    opacity: 1;
 }
 
 .theme-overlay h3 { color: #D4AF37; font-size: 1.5rem; }
 
-/* मोबाईलसाठी खास बदल */
+.book-now-btn {
+    margin-top: 15px;
+    padding: 10px 24px;
+    background-color: #b45309;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .container {
-        padding: 40px 20px;
-        overflow-x: hidden; /* स्क्रीन बाहेर ढकलली जाणार नाही */
-    }
-
-    .title {
-        font-size: 2.2rem;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    /* इमेज आणि मजकूर एकाखाली एक येण्यासाठी */
-    .main-content-row {
-        flex-direction: column;
-        gap: 60px; /* इमेज आणि बटनमधील अंतर */
-        margin-top: 20px;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .img-container {
-        width: 260px; /* मोबाईलसाठी लहान साईज */
-        height: 260px;
-        margin-bottom: 20px;
-    }
-
-    .info-side {
-        text-align: center; /* मजकूर सेंटरला */
-        margin-right: 0 !important; /* तुमचे Negative Margins काढून टाका */
-        margin-top: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .info-text {
-        font-size: 1.4rem;
-        margin-right: 0 !important;
-        margin-bottom: 20px;
-        text-align: center;
-        max-width: 100%;
-    }
-
-    .destination-btn {
-        margin-left: 0 !important;
-        margin-top: 10px !important;
-        padding: 12px 30px;
-        font-size: 1rem;
-        width: fit-content;
-    }
-
-    .img-stack {
-        border-width: 4px; /* बॉर्डर थोडी बारीक केली */
-    }
+    .container { padding: 40px 20px; }
+    .title { font-size: 2.2rem; text-align: center; }
+    .img-container { width: 280px; height: 280px; }
+    .info-text { font-size: 1.4rem; }
 }
