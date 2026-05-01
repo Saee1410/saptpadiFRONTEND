@@ -25,7 +25,7 @@ const EditService = () => {
         const confirmDelete = window.confirm("Are you sure you want to delete this service?");
         if (confirmDelete) {
             try {
-                await axios.delete(`https://saptpadi-frontend.vercel.app/api/service/${id}`);
+                await axios.delete(`https://saptpadi-backend.onrender.com/api/service/${id}`);
                 alert("Service deleted successfully!");
                 navigate('/services');
             } catch (err) {
@@ -38,7 +38,7 @@ const EditService = () => {
     useEffect(() => {
         const fetchService = async () => {
             try {
-                const res = await axios.get(`https://saptpadi-frontend.vercel.app/api/service/${id}`);
+                const res = await axios.get(`https://saptpadi-backend.onrender.com/api/service/${id}`);
                 const data = res.data;
                 setFormData({
                     businessName: data.businessName,
@@ -55,7 +55,7 @@ const EditService = () => {
                 if (data.photo) {
                     const imgUrl = data.photo.startsWith('http') 
                         ? data.photo 
-                        : `https://saptpadi-frontend.vercel.app/${data.photo.replace(/\\/g, '/')}`;
+                        : `https://saptpadi-backend.onrender.com/${data.photo.replace(/\\/g, '/')}`;
                     setImagePreview(imgUrl);
                 }
             } catch (err) {
@@ -113,7 +113,7 @@ const EditService = () => {
     }
 
     try {
-        await axios.put(`https://saptpadi-frontend.vercel.app/api/service/${id}`, data, {
+        await axios.put(`https://saptpadi-backend.onrender.com/api/service/${id}`, data, {
             headers: { 
                 'Content-Type': 'multipart/form-data',
                 // 🔴 हे सर्वात महत्त्वाचे आहे:
