@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import axios from 'axios';
 import './Home.css'
 
+
+
 const Home = () => {
   const navigate = useNavigate();
   
@@ -27,21 +29,7 @@ const Home = () => {
   ];
 
   const [styles] = useState(manualStyles); 
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const getServices = async () => {
-  //     try {
-  //       await axios.get('http://localhost:5000/api/service/all');
-  //       setStyles(manualStyles); // फक्त मॅन्युअल डेटा दाखवण्यासाठी
-  //       setLoading(false);
-  //     } catch (err) {
-  //       setStyles(manualStyles);
-  //       setLoading(false);
-  //     }
-  //   }
-  //   getServices();
-  // }, []);
+ 
 
   const handleBooking = async (e, style) => {
     e.stopPropagation(); 
@@ -61,7 +49,7 @@ const Home = () => {
     if (eventCity && startDate && endDate) {
       try {
         const bookingData = {
-          serviceId: style._id,       
+          serviceId: style._id, 
           userId: userId,
           vendorId: style.vendorId, 
           startDate: new Date(startDate),
@@ -70,7 +58,7 @@ const Home = () => {
           message: `Booking for ${style.name} Theme`
         };
 
-        const response = await axios.post('http://localhost:5000/api/bookings/request', bookingData);
+        const response = await axios.post(`https://saptpadi-frontend.vercel.app/api/bookings/request`, bookingData);
         if (response.data.success) {
           alert("Booking Request Sent!");
           navigate('/profile');
@@ -131,9 +119,7 @@ const Home = () => {
             .map((style) => (
               <motion.div 
                 key={style._id} 
-                className='theme-card' 
-                // ✅ BUG FIX: नेव्हिगेट करताना ID ऐवजी Style Name (Lowercase) पाठवावा लागतो 
-                // कारण TrendingPackages.jsx मध्ये 'styleId' नावाने फिल्टर होतंय.
+                className='theme-card'
                 onClick={() => navigate(`/packages/${style.name.toLowerCase()}`)}
               >
                 <div className="theme-img-wrapper">
@@ -156,3 +142,5 @@ const Home = () => {
 }
 
 export default Home;
+
+
