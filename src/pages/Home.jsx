@@ -58,7 +58,7 @@ const Home = () => {
           message: `Booking for ${style.name} Theme`
         };
 
-        const response = await axios.post(`https://saptpadi-frontend.backend.onrender.com/api/bookings/request`, bookingData);
+        const response = await axios.post(`https://saptpadi-backend.onrender.com/api/bookings/request`, bookingData);
         if (response.data.success) {
           alert("Booking Request Sent!");
           navigate('/profile');

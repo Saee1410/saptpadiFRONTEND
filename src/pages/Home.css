@@ -36,6 +36,7 @@
 
 /* Image Stack Styles */
 .img-container {
+    margin-top: 150px;
     position: relative;
     width: 400px;
     height: 400px;
@@ -161,17 +162,7 @@
     color: #800020;
 } 
 
- /* .theme-overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5);  Dimmed background for better text visibility  
-    opacity: 0;
-    transition: opacity 0.3s ease;
-} */
+
 
 .theme-card:hover .theme-overlay {
     opacity: 1;

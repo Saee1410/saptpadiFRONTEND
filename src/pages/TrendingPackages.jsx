@@ -21,7 +21,7 @@ const TrendingPackages = () => {
     const fetchTrendingServices = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`https://saptpadi-frontend.vercel.app/api/service/style/${styleId}`);
+        const response = await axios.get(`https://saptpadi-backend.onrender.com/api/service/style/${styleId}`);
         setServices(response.data);
       } catch (err) {
         console.error("Error fetching services:", err);
@@ -45,7 +45,7 @@ const TrendingPackages = () => {
     } else {
       // २. जर लोकल फाईल असेल, तर बॅकएंडचा URL जोडा
       const cleanPath = item.photo.replace(/\\/g, '/');
-      finalUrl = `https://saptpadi-frontend.vercel.app/${cleanPath}`;
+      finalUrl = `https://saptpadi-backend.onrender.com/${cleanPath}`;
     }
 
     // 🔥 सर्वात महत्त्वाचं: URL च्या शेवटी Timestamp जोडा ज्यामुळे नवीन इमेज लगेच दिसेल
@@ -79,7 +79,7 @@ const TrendingPackages = () => {
                   <img 
                     src={getImageUrl(item)} 
                     alt={item.businessName} 
-                    referrerPolicy="no-referrer" // 👈 Pinterest इमेज दिसण्यासाठी हे अत्यंत आवश्यक आहे
+                    referrerPolicy="no-referrer" 
                     onError={(e) => {
                       if(e.target.src !== fallbackLink) {
                         e.target.src = fallbackLink;
