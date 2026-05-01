@@ -99,6 +99,7 @@ const handleSubmit = async (e) => {
 
     // खात्री करा की id 'undefined' नाहीये
     if (!id) {
+        console.error("ID missing in URL parameters");
         alert("Service ID missing!");
         return;
     }
