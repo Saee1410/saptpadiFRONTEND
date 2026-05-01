@@ -89,9 +89,9 @@ const Home = () => {
             </motion.div>
           ))}
         </div>
-        <div className='main-container'>
-           <div className='info-side'>
-          <p className='info-text'>Plan your Dream Wedding with Saptpadi...</p>
+        <div className='main-container' style={{ marginTop: '200px', clear: 'both' }}>
+   <div className='info-side'>
+      <p className='info-text'>Plan your Dream Wedding with Saptpadi...</p>
 
           <motion.button
            whileHover={{ scale: 1.1 }}
