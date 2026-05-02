@@ -46,7 +46,7 @@ const Home = () => {
     if (eventCity && startDate && endDate) {
       try {
         const bookingData = {
-          serviceId: style._id,
+          serviceId: style._id || null,
           userId: userId,
           vendorId: style.vendorId,
           startDate: startDate,
@@ -98,7 +98,7 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className='info-text'>Plan your Dream Wedding with Saptpadi...</p>
+            <p className='info-text'>Plane your Dream Wedding with Saptpadi...</p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
