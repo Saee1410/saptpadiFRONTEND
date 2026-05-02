@@ -238,22 +238,44 @@ const manualStyles = [
             .filter(style => style._id.startsWith('65f123')) 
             .slice(0, 9)
             .map((style) => (
-              <motion.div 
-                key={style._id} 
-                className='theme-card'
-                onClick={() => navigate(`/packages/${style.name.toLowerCase()}`)}
-              >
-                <div className="theme-img-wrapper">
-                  <img src={style.image} alt={style.name} className='theme-img' />
-                  <div className='theme-overlay'>
-                    <h1>₹{style.package}</h1>
-                    <h3>{style.name}</h3>
-                    <button className='book-now-btn' onClick={(e) => handleBooking(e, style)}>
-                      Book Now
-                    </button>
-                  </div>  
-                </div>
-              </motion.div>
+              // Home.js मधला Card वाला भाग असा असावा:
+<motion.div 
+  key={style._id} 
+  className='theme-card'
+  onClick={() => navigate(`/packages/${style.name.toLowerCase()}`)}
+>
+  <div className="theme-img-wrapper">
+    <img src={style.image} alt={style.name} className='theme-img' />
+    
+    {/* ओव्हरले ज्यामध्ये किंमत आणि बटन आहे */}
+    <div className='theme-overlay'>
+      <h1>₹{style.package}</h1>
+      <h3>{style.name}</h3>
+      <button 
+        className='book-now-btn' 
+        onClick={(e) => handleBooking(e, style)}
+      >
+        Book Now
+      </button>
+    </div>  
+  </div>
+</motion.div>
+              // <motion.div 
+              //   key={style._id} 
+              //   className='theme-card'
+              //   onClick={() => navigate(`/packages/${style.name.toLowerCase()}`)}
+              // >
+              //   <div className="theme-img-wrapper">
+              //     <img src={style.image} alt={style.name} className='theme-img' />
+              //     <div className='theme-overlay'>
+              //       <h1>₹{style.package}</h1>
+              //       <h3>{style.name}</h3>
+              //       <button className='book-now-btn' onClick={(e) => handleBooking(e, style)}>
+              //         Book Now
+              //       </button>
+              //     </div>  
+              //   </div>
+              // </motion.div>
             ))
           }
         </div>   
