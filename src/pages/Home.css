@@ -8,38 +8,27 @@
 
 .title {
     font-size: 3.5rem;
-    color: #800020; /* Royal Maroon */
+    color: #800020;
     font-family: 'Playfair Display', serif;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .gold { color: #D4AF37; }
 
-/* Hero Content Layout (Image + Text) */
-/* हा मुख्य भाग आहे जिथे बदल केला आहे */
+/* Main Hero Section */
 .main-content-row {
     display: flex;
-    flex-direction: column; /* इमेज वर आणि मजकूर खाली येण्यासाठी */
-    align-items: center;    /* सेंटरला अलाईन करण्यासाठी */
-    justify-content: center;
-    gap: 60px;              /* इमेज आणि मजकूर यांच्यातील सुरक्षित अंतर */
-    margin-top: 40px;
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
 }
 
-/* Image Stack Styles */
 .img-container {
     position: relative;
-    width: 400px;
-    height: 400px; /* ही उंची महत्त्वाची आहे, यामुळे मजकूर खाली ढकलला जातो */
-    flex-shrink: 0;
-}
-
-.card-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+    width: 350px;
+    height: 350px;
 }
 
 .img-stack {
@@ -47,133 +36,107 @@
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
-    border: 8px solid white;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 6px solid white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-.label {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(128, 0, 32, 0.9);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.9rem;
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.card-wrapper:hover .label { opacity: 1; }
-
-/* Info Side - इथले सर्व Negative Margins काढले आहेत */
-.info-side {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.info-text {
-    font-size: 1.8rem;
-    color: #4a322d;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    line-height: 1.4;
-    max-width: 600px;
-    margin-bottom: 30px; /* बटनपासूनचे अंतर */
-    /* सर्व negative margins काढून टाकले */
-}
-
-.destination-btn {
-    padding: 18px 45px;
-    background-color: #800020; 
-    color: #ffffff;
-    border: 2px solid #D4AF37;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(128, 0, 32, 0.2);
-    transition: 0.3s;
-    position: relative;
-    z-index: 10;
-}
-
-.destination-btn:hover {
-    background-color: #D4AF37;
-    color: #800020;
-}
-
-/* Trending Styles Section (No Changes) */
+/* Trending Grid Styling */
 .trending-section {
-    margin-top: 80px;
-    border-top: 1px solid #eee;
-    padding-top: 60px;
-}
-
-.section-title {
-    font-size: 2.8rem;
-    color: #4a322d;
+    margin-top: 50px;
     text-align: center;
-    margin-bottom: 40px;
 }
 
 .trending-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
 }
 
+/* Theme Card & Overlay */
 .theme-card {
-    height: 450px;
-    border-radius: 25px;
+    height: 420px;
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.theme-card:hover {
+    transform: translateY(-10px);
+}
+
+.theme-img-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .theme-img {
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
 }
 
-/* .theme-overlay {
+/* --- महत्वाचा भाग: Overlay & Button --- */
+.theme-overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 30px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* थोडा काळा पारदर्शक पडदा */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: white;
-    opacity: 0;
-    transition: 0.3s;
-} */
+    opacity: 0; /* सुरुवातीला बटन दिसणार नाही */
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.theme-card:hover .theme-overlay {
+    opacity: 1; /* माऊस नेल्यावर ओव्हरले दिसेल */
+}
+
+.theme-overlay h1 {
+    font-size: 1.8rem;
+    color: #D4AF37;
+    margin-bottom: 5px;
+}
+
+.theme-overlay h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
 
 .book-now-btn {
-    margin-top: 15px;
-    padding: 10px 24px;
-    background-color: #b45309;
+    padding: 12px 30px;
+    background-color: #800020; /* Royal Maroon */
     color: white;
-    border: none;
+    border: 2px solid #D4AF37;
     border-radius: 50px;
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Responsive Styles */
+.book-now-btn:hover {
+    background-color: #D4AF37;
+    color: #800020;
+    transform: scale(1.05);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .container { padding: 40px 20px; }
-    .title { font-size: 2.2rem; text-align: center; }
+    .theme-overlay { opacity: 1; background: rgba(0,0,0,0.3); } /* मोबाईलवर बटन नेहमी दिसेल */
+    .title { font-size: 2.5rem; }
     .img-container { width: 280px; height: 280px; }
-    .info-text { font-size: 1.4rem; }
 }
