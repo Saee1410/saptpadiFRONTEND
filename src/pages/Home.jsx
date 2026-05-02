@@ -29,44 +29,117 @@ const Home = () => {
   const [styles] = useState(manualStyles);
 
   const handleBooking = async (e, style) => {
-    e.stopPropagation();
-    const userData = JSON.parse(localStorage.getItem('user'));
+  e.stopPropagation();
 
-    if (!userData) {
-      alert("Please login first!");
-      navigate('/login');
-      return;
-    }
+  const userData = JSON.parse(localStorage.getItem('user'));
 
-    const userId = userData._id || userData.id;
-    const eventCity = prompt("Wedding City:", "Nashik");
-    const startDate = prompt("Start Date (YYYY-MM-DD):", "2026-12-25");
-    const endDate = prompt("End Date (YYYY-MM-DD):", "2026-12-27");
+  if (!userData) {
+    alert("Please login first!");
+    navigate('/login');
+    return;
+  }
 
-    if (eventCity && startDate && endDate) {
-      try {
-        const bookingData = {
-          serviceId: style._id || null,
-          userId: userId,
-          vendorId: style.vendorId,
-          startDate: startDate,
-          endDate: endDate,
-          eventCity: eventCity,
-          message: `Booking for ${style.name} Theme`
-        };
+  const userId = userData._id || userData.id;
 
-        const response = await axios.post(`https://saptpadi-backend.onrender.com/api/bookings/request`, bookingData);
-        
-        if (response.data.success) {
-          alert("Booking Request Sent Successfully!");
-          navigate('/profile');
-        }
-      } catch (error) {
-        console.error("Booking Error:", error.response?.data);
-        alert(error.response?.data?.message || "Booking failed. Please try again.");
-      }
-    }
+  const eventCity = prompt("Wedding City:", "Nashik");
+  const startDate = prompt("Start Date (YYYY-MM-DD):", "2026-12-25");
+  const endDate = prompt("End Date (YYYY-MM-DD):", "2026-12-27");
+
+  if (!eventCity || !startDate || !endDate) {
+    alert("Please fill all details!");
+    return;
+  }
+
+  const bookingData = {
+    serviceId: style._id || null,
+    userId: userId,
+    vendorId: style.vendorId,
+    startDate: startDate,
+    endDate: endDate,
+    eventCity: eventCity,
+    message: `Booking for ${style.name} Theme`
   };
+
+  console.log("Sending Booking Data:", bookingData);
+
+  try {
+    const response = await axios.post(
+      "https://saptpadi-backend.onrender.com/api/bookings/request",
+      bookingData,
+      {
+        headers: {
+          "Content-Type": "application/json"
+        },
+        timeout: 15000
+      }
+    );
+
+    console.log("Response:", response.data);
+
+    if (response.data.success) {
+      alert("Booking Request Sent Successfully!");
+      navigate('/profile');
+    } else {
+      alert(response.data.message || "Booking failed");
+    }
+
+  } catch (error) {
+    console.log("FULL ERROR:", error);
+    console.log("ERROR MESSAGE:", error.message);
+    console.log("ERROR RESPONSE:", error.response);
+
+    if (error.code === "ECONNABORTED") {
+      alert("Server is taking too long. Try again!");
+    } else if (error.response) {
+      alert(error.response.data.message || "Server error");
+    } else {
+      alert("Network error! Check internet or try again.");
+    }
+  }
+};
+
+//   const handleBooking = async (e, style) => {
+//     e.stopPropagation();
+//     const userData = JSON.parse(localStorage.getItem('user'));
+
+//     if (!userData) {
+//       alert("Please login first!");
+//       navigate('/login');
+//       return;
+//     }
+
+//     const userId = userData._id || userData.id;
+//     const eventCity = prompt("Wedding City:", "Nashik");
+//     const startDate = prompt("Start Date (YYYY-MM-DD):", "2026-12-25");
+//     const endDate = prompt("End Date (YYYY-MM-DD):", "2026-12-27");
+
+//     if (eventCity && startDate && endDate) {
+//       try {
+//         const bookingData = {
+//           serviceId: style._id || null,
+//           userId: userId,
+//           vendorId: style.vendorId,
+//           startDate: startDate,
+//           endDate: endDate,
+//           eventCity: eventCity,
+//           message: `Booking for ${style.name} Theme`
+//         };
+
+//         const response = await axios.post(`https://saptpadi-backend.onrender.com/api/bookings/request`, bookingData);
+        
+//         if (response.data.success) {
+//           alert("Booking Request Sent Successfully!");
+//           navigate('/profile');
+//         }
+//       } catch (error) {
+//        console.log("FULL ERROR:", error);
+// console.log("ERROR MESSAGE:", error.message);
+// console.log("ERROR RESPONSE:", error.response);
+
+// alert(error.response?.data?.message || error.message || "Booking failed");
+//       }
+//     }
+//   };
 
   return (
     <div className='container'>
