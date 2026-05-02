@@ -146,7 +146,7 @@
     object-fit: cover;
 }
 
-.theme-overlay {
+/* .theme-overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -155,13 +155,7 @@
     color: white;
     opacity: 0;
     transition: 0.3s;
-}
-
-.theme-card:hover .theme-overlay {
-    opacity: 1;
-}
-
-.theme-overlay h3 { color: #D4AF37; font-size: 1.5rem; }
+} */
 
 .book-now-btn {
     margin-top: 15px;
