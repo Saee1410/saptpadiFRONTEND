@@ -16,21 +16,98 @@ const Home = () => {
     { src: '/assets/mehndi.jpg', angle: 10, x: 150, label: "Mehndi" }
   ];
 
-  const manualStyles = [
-    { _id: '65f123abc456def789012345', vendorId: '65f123abc456def789012399', package: '10,00,000', name: "Maharashtrian", image:'/assets/mharathiwed.jpg', tagline: "Antarpat & Mangalashtaka" },
-    { _id: '65f123abc456def789012346', vendorId: '65f123abc456def789012398', package: '12,00,000', name: "Peshwai", image: '/assets/peshwaiwed.jpg', tagline: "Royal Wada Experience" },
-    { _id: '65f123abc456def789012347', vendorId: '65f123abc456def789012397', package: '11,00,000', name: "Gujarati", image: '/assets/gujwed.jpg', tagline: "Garba & Shahi Mejwani" },
-    { _id: '65f123abc456def789012348', vendorId: '65f123abc456def789012396', package: '10,00,000', name: "South-Indian", image: '/assets/mhmed.jpg', tagline: "Temple Decor & Traditional Vibes" },
-    { _id: '65f123abc456def789012349', vendorId: '65f123abc456def789012395', package: '12,00,000', name: "Bengali", image: '/assets/benwed.jpg', tagline: "Shorshe Ilish & Royal Decor" },
-    { _id: '65f123abc456def789012350', vendorId: '65f123abc456def789012394', package: '10,00,000', name: "North-Indian", image: '/assets/northwed.jpg', tagline: "Shahi Decor & Lavish Cuisine" },
-    { _id: '65f123abc456def789012351', vendorId: '65f123abc456def789012393', package: '12,00,000', name: "Rajasthani", image: '/assets/rajwed.jpg', tagline: "Desert Vibes & Royal Decor" },
-    { _id: '65f123abc456def789012352', vendorId: '65f123abc456def789012392', package: '11,00,000', name: "Punjabi", image: '/assets/punwed.jpg', tagline: "Bhangra & Royal Decor" },
-    { _id: '65f123abc456def789012353', vendorId: '65f123abc456def789012391', package: '10,00,000', name: "Modern", image: '/assets/weswed.jpg', tagline: "Trendy Decor & Modern Vibes" }
-  ];
+  // --- सुधारलेला पूर्ण manualStyles ब्लॉक ---
+const manualStyles = [
+  { 
+    _id: '65f123abc456def789012345', 
+    vendorId: '69a1468894d1a8af2c650dec', // Ram
+    package: '10,00,000', 
+    name: "Maharashtrian", 
+    image: '/assets/mharathiwed.jpg', 
+    tagline: "Antarpat & Mangalashtaka" 
+  },
+  { 
+    _id: '65f123abc456def789012346', 
+    vendorId: '69a146d394d1a8af2c650df1', // Karan
+    package: '12,00,000', 
+    name: "Peshwai", 
+    image: '/assets/peshwaiwed.jpg', 
+    tagline: "Royal Wada Experience" 
+  },
+  { 
+    _id: '65f123abc456def789012347', 
+    vendorId: '69a1468894d1a8af2c650dec', // Ram
+    package: '11,00,000', 
+    name: "Gujarati", 
+    image: '/assets/gujwed.jpg', 
+    tagline: "Garba & Shahi Mejwani" 
+  },
+  { 
+    _id: '65f123abc456def789012348', 
+    vendorId: '69a146d394d1a8af2c650df1', // Karan
+    package: '10,00,000', 
+    name: "South-Indian", 
+    image: '/assets/mhmed.jpg', 
+    tagline: "Temple Decor & Traditional Vibes" 
+  },
+  { 
+    _id: '65f123abc456def789012349', 
+    vendorId: '69a1468894d1a8af2c650dec', // Ram
+    package: '12,00,000', 
+    name: "Bengali", 
+    image: '/assets/benwed.jpg', 
+    tagline: "Shorshe Ilish & Royal Decor" 
+  },
+  { 
+    _id: '65f123abc456def789012350', 
+    vendorId: '69a146d394d1a8af2c650df1', // Karan
+    package: '10,00,000', 
+    name: "North-Indian", 
+    image: '/assets/northwed.jpg', 
+    tagline: "Shahi Decor & Lavish Cuisine" 
+  },
+  { 
+    _id: '65f123abc456def789012351', 
+    vendorId: '69a1468894d1a8af2c650dec', // Ram
+    package: '12,00,000', 
+    name: "Rajasthani", 
+    image: '/assets/rajwed.jpg', 
+    tagline: "Desert Vibes & Royal Decor" 
+  },
+  { 
+    _id: '65f123abc456def789012352', 
+    vendorId: '69a146d394d1a8af2c650df1', // Karan
+    package: '11,00,000', 
+    name: "Punjabi", 
+    image: '/assets/punwed.jpg', 
+    tagline: "Bhangra & Royal Decor" 
+  },
+  { 
+    _id: '65f123abc456def789012353', 
+    vendorId: '69a1468894d1a8af2c650dec', // Ram
+    package: '10,00,000', 
+    name: "Modern", 
+    image: '/assets/weswed.jpg', 
+    tagline: "Trendy Decor & Modern Vibes" 
+  }
+];
+// ---------------------------------------------------
+
+
+  // const manualStyles = [
+  //   { _id: '65f123abc456def789012345', vendorId: '65f123abc456def789012399', package: '10,00,000', name: "Maharashtrian", image:'/assets/mharathiwed.jpg', tagline: "Antarpat & Mangalashtaka" },
+  //   { _id: '65f123abc456def789012346', vendorId: '65f123abc456def789012398', package: '12,00,000', name: "Peshwai", image: '/assets/peshwaiwed.jpg', tagline: "Royal Wada Experience" },
+  //   { _id: '65f123abc456def789012347', vendorId: '65f123abc456def789012397', package: '11,00,000', name: "Gujarati", image: '/assets/gujwed.jpg', tagline: "Garba & Shahi Mejwani" },
+  //   { _id: '65f123abc456def789012348', vendorId: '65f123abc456def789012396', package: '10,00,000', name: "South-Indian", image: '/assets/mhmed.jpg', tagline: "Temple Decor & Traditional Vibes" },
+  //   { _id: '65f123abc456def789012349', vendorId: '65f123abc456def789012395', package: '12,00,000', name: "Bengali", image: '/assets/benwed.jpg', tagline: "Shorshe Ilish & Royal Decor" },
+  //   { _id: '65f123abc456def789012350', vendorId: '65f123abc456def789012394', package: '10,00,000', name: "North-Indian", image: '/assets/northwed.jpg', tagline: "Shahi Decor & Lavish Cuisine" },
+  //   { _id: '65f123abc456def789012351', vendorId: '65f123abc456def789012393', package: '12,00,000', name: "Rajasthani", image: '/assets/rajwed.jpg', tagline: "Desert Vibes & Royal Decor" },
+  //   { _id: '65f123abc456def789012352', vendorId: '65f123abc456def789012392', package: '11,00,000', name: "Punjabi", image: '/assets/punwed.jpg', tagline: "Bhangra & Royal Decor" },
+  //   { _id: '65f123abc456def789012353', vendorId: '65f123abc456def789012391', package: '10,00,000', name: "Modern", image: '/assets/weswed.jpg', tagline: "Trendy Decor & Modern Vibes" }
+  // ];
 
   const [styles] = useState(manualStyles); 
  
-
   const handleBooking = async (e, style) => {
     e.stopPropagation(); 
     const userData = JSON.parse(localStorage.getItem('user'));
@@ -49,25 +126,68 @@ const Home = () => {
     if (eventCity && startDate && endDate) {
       try {
         const bookingData = {
-          serviceId: style._id, 
+          serviceId: style._id.toString(), // ✅ खात्रीसाठी toString() वापरा
           userId: userId,
           vendorId: style.vendorId, 
-          startDate: new Date(startDate),
-          endDate: new Date(endDate),
+          startDate: startDate, // Date object बॅकएंडला सुद्धा बनवता येतो
+          endDate: endDate,
           eventCity: eventCity,
           message: `Booking for ${style.name} Theme`
         };
 
+        // API Call
         const response = await axios.post(`https://saptpadi-backend.onrender.com/api/bookings/request`, bookingData);
+        
         if (response.data.success) {
           alert("Booking Request Sent!");
           navigate('/profile');
         }
       } catch (error) {
+        // --- ERROR HIGHLIGHT: नेमका काय एरर आहे तो पाहण्यासाठी console.log करा ---
+        console.error("Full Error Response:", error.response?.data);
         alert(error.response?.data?.message || "Booking failed.");
+        // ----------------------------------------------------------------------
       }
     }
-  };
+};
+
+  // const handleBooking = async (e, style) => {
+  //   e.stopPropagation(); 
+  //   const userData = JSON.parse(localStorage.getItem('user'));
+    
+  //   if (!userData) {
+  //     alert("Please login first!");
+  //     navigate('/login');
+  //     return;
+  //   }
+
+  //   const userId = userData._id || userData.id;
+  //   const eventCity = prompt("Wedding City:", "Nashik");
+  //   const startDate = prompt("Start Date:", "2026-12-25");
+  //   const endDate = prompt("End Date:", "2026-12-27");
+
+  //   if (eventCity && startDate && endDate) {
+  //     try {
+  //       const bookingData = {
+  //         serviceId: style._id, 
+  //         userId: userId,
+  //         vendorId: style.vendorId, 
+  //         startDate: new Date(startDate),
+  //         endDate: new Date(endDate),
+  //         eventCity: eventCity,
+  //         message: `Booking for ${style.name} Theme`
+  //       };
+
+  //       const response = await axios.post(`https://saptpadi-backend.onrender.com/api/bookings/request`, bookingData);
+  //       if (response.data.success) {
+  //         alert("Booking Request Sent!");
+  //         navigate('/profile');
+  //       }
+  //     } catch (error) {
+  //       alert(error.response?.data?.message || "Booking failed.");
+  //     }
+  //   }
+  // };
 
   return (
     <div className='container'>
@@ -79,6 +199,7 @@ const Home = () => {
             <motion.div
               key={index}
               className="card-wrapper"
+              style={{ position: 'absolute'}}
               initial={{ opacity: 0, y: 50, rotate: item.angle, x: item.angle * 5 }}
               animate={{ opacity: 1, y: 0, x: window.innerWidth < 768 ? item.angle * 2 : item.angle * 8 }}
               transition={{ delay: index * 0.2 }}
@@ -89,7 +210,7 @@ const Home = () => {
             </motion.div>
           ))}
         </div>
-        <div className='main-container' style={{ marginTop: '200px', clear: 'both' }}>
+        <div className='main-container'>
    <div className='info-side'>
       <p className='info-text'>Plan your Dream Wedding with Saptpadi...</p>
 
