@@ -70,7 +70,7 @@ const Home = () => {
         headers: {
           "Content-Type": "application/json"
         },
-        timeout: 15000
+        timeout: 30000
       }
     );
 
