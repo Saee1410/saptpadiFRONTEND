@@ -47,10 +47,10 @@ button {
 }
 
 .aspect-video {
-    aspect-ratio: 16 / 9; /* व्हिडिओचा आकार फिक्स राहतो */
-    background-color: #1a1a1a; /* पूर्ण काळ्यापेक्षा थोडा राखाडी रंग चांगला दिसतो */
+    aspect-ratio: 16 / 9; 
+    background-color: #1a1a1a; 
     position: relative;
-    border: 2px solid #d4af37; /* तुझ्या गोल्डन थीमसाठी बॉर्डर */
+    border: 2px solid #d4af37;
 }
 
 iframe {

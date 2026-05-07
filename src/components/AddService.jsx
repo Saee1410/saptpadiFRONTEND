@@ -68,7 +68,7 @@ const AddService = () => {
     
     data.append('photo', formData.externalUrl);
 } else if (formData.photo) {
-    // २. जर URL नसेल तरच अपलोड केलेली फाईल पाठवा
+    
     data.append('photo', formData.photo);
 }
             const response = await axios.post('https://saptpadi-backend.onrender.com/api/service/add', data,{

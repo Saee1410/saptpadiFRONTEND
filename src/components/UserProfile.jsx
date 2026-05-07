@@ -76,7 +76,7 @@ const UserProfile = () => {
     
     
 
-    if (loading) return <div className="text-center py-20 italic text-[[var(--color-royal)] animate-pulse">Saptpadi Profile लोड होत आहे...</div>;
+    if (loading) return <div className="text-center py-20 italic text-[[var(--color-royal)] animate-pulse">Saptpadi Profile is loading....</div>;
 
     return (
         <div className="min-h-screen bg-[#FDFBF7] p-4 md:p-10">
@@ -187,7 +187,7 @@ const UserProfile = () => {
                                 );
                             }) : (
                                 <div className="col-span-full text-center py-10 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
-                                    <p className="text-gray-400 font-medium text-lg italic">अजून कोणतेही बुकिंग सापडले नाही.</p>
+                                    <p className="text-gray-400 font-medium text-lg italic">No Booking is Found</p>
                                 </div>
                             )}
                         </div>

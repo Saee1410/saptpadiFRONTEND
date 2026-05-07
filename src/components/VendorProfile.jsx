@@ -34,8 +34,7 @@ const VendorProfile = () => {
     // बुकिंग स्वीकारण्याचे लॉजिक
 
     const handleAcceptBooking = async (bookingId) => {
-    try {
-        // १. डेटाबेसमध्ये स्टेटस अपडेट करा
+    try{
         const res = await axios.put(`https://saptpadi-backend.onrender.com/api/bookings/update-status/${bookingId}`, {
             status: 'Accepted' 
         });
@@ -43,7 +42,7 @@ const VendorProfile = () => {
         if (res.data.success) {
             alert("Booking Accepted! ✅");
             
-            // २. ✅ रिअल-टाइम स्टेट अपडेट (यामुळे रिफ्रेश न करता बटन गायब होईल)
+           
             setMyBookings(prevBookings => 
                 prevBookings.map(booking => 
                     booking._id === bookingId ? { ...booking, status: 'Accepted' } : booking
@@ -124,7 +123,7 @@ const VendorProfile = () => {
                             <div className='date-detail'>
                                 <span className={`status-tag ${b.status?.toLowerCase()}`}>{b.status}</span>
                                 
-                                {/* ✅ महत्त्वाचा बदल: 'pending' स्मॉल मध्ये चेक केला आहे */}
+                                
                                 {b.status?.toLowerCase() === 'pending' && (
                                     <button 
                                         className="mini-accept-btn"
